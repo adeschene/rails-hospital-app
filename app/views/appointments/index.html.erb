@@ -1,0 +1,10 @@
+<%# Home page title %>
+<div class="container w-100 text-center mt-5 mb-5">
+  <h1>Hospital Appointment App</h1>
+</div>
+
+<ul>
+  <% @appointments.each do |appointment| %>
+    <%= link_to appointment.issue, appointment %>
+  <% end %>
+</ul>
