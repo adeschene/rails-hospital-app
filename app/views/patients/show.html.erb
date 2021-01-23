@@ -1,0 +1,42 @@
+<%# Display the patient and give the option to edit and delete it %>
+<div class="card w-100 mt-5 mb-5 mx-auto text-dark bg-light">
+  <div class="card-header fs-5 fw-bold py-3">
+  	<%= @patient.name %>
+  </div>
+  <div class="card-body mb-1">
+    <dl class="row">
+      <dt class="col-sm-2 text-nowrap">Date of Birth:</dt>
+      <dd class="col-sm-10"><%= @patient.dob %></dd>
+      <dt class="col-sm-2 text-nowrap">Insured:</dt>
+      <dd class="col-sm-10 text-capitalize"><%= @patient.is_insured.nil? ? "false" : @patient.is_insured %></dd>
+    </dl>
+    <div class="ms-2">
+	  <%= link_to "Edit", edit_patient_path(@patient), class: 'btn btn-secondary px-4 mx-1' %>
+	  <%= link_to "Delete", patient_path(@patient), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger mx-1' %>
+	</div>
+  </div>
+</div>
+
+<%# Check if there are any appointments %>
+<% if @patient.appointments.empty? %>
+  <%# If the appointments array is empty, make user aware with a card %>
+  <div class="card w-75 mx-auto mb-5">
+    <div class="card-header text-center">
+      <p class="card-text">No appointments scheduled...</p>
+    </div>
+  </div>
+<% else %>
+  <%# Otherwise, list all appointments as clickable links %>
+  <div class="card bg-light mb-5">
+    <div class="card-header text-center">
+      Scheduled Appointments
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <% @patient.appointments.each do |appointment| %>
+          <%= link_to appointment.issue, appointment, class: "list-group-item list-group-item-action list-group-item-light" %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

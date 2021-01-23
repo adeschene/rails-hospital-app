@@ -1,0 +1,14 @@
+<%# Render the new/edit patient form in a card %>
+<div class="card w-100 mx-auto mt-5 mb-3 text-dark bg-light">
+  <div class="card-header">
+  	<p class="card-text text-center fs-4">Edit Patient Profile</p>
+  </div>
+  <div class="card-body">
+    <%= render "form", patient: @patient %>
+  </div>
+</div>
+
+<%# Add a back button that redirects back to the show view for the patient %>
+<div class="container mb-5 text-center">
+  <%= link_to "Back", @patient, class: 'btn btn-dark px-5' %>
+</div>

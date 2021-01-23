@@ -3,8 +3,36 @@
   <h1>Hospital Appointment App</h1>
 </div>
 
-<ul>
-  <% @appointments.each do |appointment| %>
-    <%= link_to appointment.issue, appointment %>
-  <% end %>
-</ul>
+<%# Check if there are any appointments %>
+<% if @appointments.empty? %>
+  <%# If the appointments array is empty, make user aware with a card %>
+  <div class="card w-75 mx-auto mb-5">
+    <div class="card-header text-center">
+      <p class="card-text">No appointments scheduled...</p>
+    </div>
+  </div>
+<% else %>
+  <%# Otherwise, list all appointments as clickable links %>
+  <div class="card bg-light mb-5">
+    <div class="card-header text-center">
+      Scheduled Appointments
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <%# Goes thru each appointment and creates a clickable list-group-item link %>
+        <% @appointments.each do |appointment| %>
+          <%= link_to appointment.issue, appointment, class: "list-group-item list-group-item-action list-group-item-light" %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class="card bg-light mb-3">
+  <div class="card-header text-center">
+  	New Appointment
+  </div>
+  <div class="card-body">
+    <%= render "form", appointment: Appointment.new %>
+  </div>
+</div>

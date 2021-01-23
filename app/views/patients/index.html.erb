@@ -1,0 +1,21 @@
+<div class="card bg-light mb-5 mt-3">
+  <div class="card-header text-center">
+    List of Patients
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <% @patients.each do |patient| %>
+        <%= link_to patient.name, patient, class: "list-group-item list-group-item-action list-group-item-light" %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="card bg-light mb-3">
+  <div class="card-header text-center">
+  	Add Patient
+  </div>
+  <div class="card-body">
+    <%= render "form", patient: Patient.new %>
+  </div>
+</div>

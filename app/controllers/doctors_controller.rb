@@ -11,9 +11,9 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.new(doctor_params)
 
     if @doctor.save
-      redirect_to doctor_path, notice: "Doctor profile successfully created!"
+      redirect_to doctors_path, notice: "Doctor profile successfully created!"
     else
-      redirect_to doctor_path, alert: "Invalid input, Doctor profile creation failed..."
+      redirect_to doctors_path, alert: "Invalid input, Doctor profile creation failed..."
     end
   end
 
@@ -36,7 +36,7 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find(params[:id])
     @doctor.destroy
 
-    redirect_to root_path, notice: "Doctor profile successfully deleted!"
+    redirect_to doctors_path, notice: "Doctor profile successfully deleted!"
   end
 
   private
