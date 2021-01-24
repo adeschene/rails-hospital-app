@@ -16,7 +16,7 @@
       <ul class="list-group">
         <%# Goes thru each appointment and creates a clickable list-group-item link %>
         <% @appointments.each do |appointment| %>
-          <%= link_to appointment.issue, appointment, class: "list-group-item list-group-item-action list-group-item-light" %>
+          <%= link_to (appointment.id.to_s + " : " + appointment.doctor.name + " => " + appointment.patient.name), appointment, class: "list-group-item list-group-item-action list-group-item-light" %>
         <% end %>
       </ul>
     </div>
