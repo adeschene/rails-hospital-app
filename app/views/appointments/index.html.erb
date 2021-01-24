@@ -1,19 +1,14 @@
-<%# Home page title %>
-<div class="container w-100 text-center mt-5 mb-5">
-  <h1>Hospital Appointment App</h1>
-</div>
-
 <%# Check if there are any appointments %>
 <% if @appointments.empty? %>
   <%# If the appointments array is empty, make user aware with a card %>
-  <div class="card w-75 mx-auto mb-5">
+  <div class="card w-75 mx-auto mb-5 mt-3">
     <div class="card-header text-center">
       <p class="card-text">No appointments scheduled...</p>
     </div>
   </div>
 <% else %>
   <%# Otherwise, list all appointments as clickable links %>
-  <div class="card bg-light mb-5">
+  <div class="card bg-light mb-5 mt-3">
     <div class="card-header text-center">
       Scheduled Appointments
     </div>
