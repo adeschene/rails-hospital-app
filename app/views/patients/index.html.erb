@@ -1,15 +1,26 @@
-<div class="card bg-light mb-5 mt-3">
-  <div class="card-header text-center">
-    Current Patients
+<%# Check if there are any patients %>
+<% if @patients.empty? %>
+  <%# If the patients array is empty, make user aware with a card %>
+  <div class="card w-75 mx-auto mb-5 mt-3">
+    <div class="card-header text-center">
+      <p class="card-text">No patients added...</p>
+    </div>
   </div>
-  <div class="card-body">
-    <ul class="list-group">
-      <% @patients.each do |patient| %>
-        <%= link_to patient.name, patient, class: "list-group-item list-group-item-action list-group-item-light" %>
-      <% end %>
-    </ul>
+<% else %>
+  <%# Otherwise, list all patients as clickable links %>
+  <div class="card bg-light mb-5 mt-3">
+    <div class="card-header text-center">
+      Current Patients
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <% @patients.each do |patient| %>
+          <%= link_to patient.name, patient, class: "list-group-item list-group-item-action list-group-item-light" %>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="card bg-light mb-3">
   <div class="card-header text-center">
