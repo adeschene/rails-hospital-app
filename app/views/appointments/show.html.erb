@@ -10,11 +10,11 @@
       <dt class="col-sm-2 text-nowrap">Doctor:</dt>
       <dd class="col-sm-10"><%= link_to @appointment.doctor.name, @appointment.doctor, class: 'btn btn-sm btn-outline-secondary' %></dd>
       <dt class="col-sm-2 text-nowrap">Date:</dt>
-      <dd class="col-sm-10"><%= @appointment.date %></dd>
+      <dd class="col-sm-10"><%= @appointment.date.strftime("%m/%d/%Y") %></dd>
       <dt class="col-sm-2 text-nowrap">Start Time:</dt>
-      <dd class="col-sm-10"><%= @appointment.start_time %></dd>
+      <dd class="col-sm-10"><%= @appointment.start_time.to_formatted_s(:time) %></dd>
       <dt class="col-sm-2 text-nowrap">End Time:</dt>
-      <dd class="col-sm-10"><%= @appointment.end_time %></dd>
+      <dd class="col-sm-10"><%= @appointment.end_time.to_formatted_s(:time) %></dd>
     </dl>
     <div class="card mb-2">
       <div class="card-header">
