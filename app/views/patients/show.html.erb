@@ -34,7 +34,7 @@
     <div class="card-body">
       <ul class="list-group">
         <% @patient.appointments.each_with_index do |appointment,i| %>
-          <%= link_to (i.to_s + " : " + appointment.date.strftime("%m/%d/%Y") + " => " + appointment.doctor.name), appointment, class: "list-group-item list-group-item-action list-group-item-light" %>
+          <%= link_to ((i + 1).to_s + " : " + appointment.date.strftime("%m/%d/%Y") + " => " + appointment.doctor.name), appointment, class: "list-group-item list-group-item-action list-group-item-light" %>
         <% end %>
       </ul>
     </div>
